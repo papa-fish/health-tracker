@@ -1,11 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 export const HealthTrackerContext = createContext();
 
 export function HealthTrackerProvider(props) {
     
     const value = {
-        
+
     };
 
     return(

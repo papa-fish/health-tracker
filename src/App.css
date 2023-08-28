@@ -3,58 +3,79 @@
   text-align: center;
   --font-size-large: 36px;
   --font-size-medium: 26px;
+  --font-size-small: 20px;
   --font-weight: 800;
-  --white-font-color: rgb(255, 255, 255);
+  --white-color: rgb(255, 255, 255);
   --blue-color: rgb(0, 123, 255);
   --red-color: rgb(220, 53, 70);
   --black-color: rgb(24, 24, 24);
+  --grey-color: rgb(170, 170, 170);
+  --dark-grey-color: rgb(61, 61, 61);
   --highlight-color: rgba(108, 117, 125, 0.3);
 }
 
 body {
   height: 100vh;
-  background: rgb(170,170,170);
-  background: linear-gradient(180deg, rgba(170,170,170,1) 0%, rgba(61,61,61,1) 100%);
+  background: var(--grey-color);
+  background: linear-gradient(180deg, var(--grey-color) 0%, var(--dark-grey-color) 100%);
   margin: 5px 5px
 }
 
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  margin-top: 85px;
 }
 
 .player {
   display: flex;
-  align-self: center;
   justify-content: center;
   gap: 3px;
+  height: 35vh;
+  margin: 10px 0;
+}
+
+.hp {
+  width: -webkit-fill-available;
 }
 
 .hp input {
   text-align: center;
-  max-width: 250px;
+  max-width: 150px;
   border: none;
   background: none;
   font-weight: var(--font-weight);
-  color: var(--white-font-color);
+  color: var(--white-color);
   font-size: var(--font-size-large);
+}
+
+.current-hp:focus,
+.max-hp:focus {
+  background-color: lightblue;
 }
 
 .player button {
   border-radius: 12px;
-  color: var(--white-font-color);
+  color: var(--white-color);
   border: 5px solid var(--black-color);
 }
 
 .hp-divider {
   width: 50%;
-  height: 1px;
-  background-color: var(--black-color);
+  height: 2px;
+  background: var(--black-color);
+  border: none;
 }
 
 .plus-minus-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 3px
+  gap: 3px;
 }
 
 .plus-minus-wrapper button {
@@ -62,4 +83,16 @@ body {
   font-weight: var(--font-weight);
   height: -webkit-fill-available;
   width: 100px;
+}
+
+.attack-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px;
+  align-items: center;
+}
+
+.block-container {
+  display: flex;
+  flex-direction: column;
 }
