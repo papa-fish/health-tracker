@@ -14,10 +14,7 @@
   justify-content: space-between;
   align-items: center;
   color: transparent;
-}
-
-.home-link {
-  margin-left: 10px;
+  margin: 0 10px;
 }
 
 .home-link > img {
@@ -44,7 +41,7 @@ a:any-link {
 
 .mobile-nav {
   width: 30px;
-  margin-right: 15px;
+  margin-right: 10px;
   cursor: pointer;
   background-color: var(--grey-color);
   border: none;

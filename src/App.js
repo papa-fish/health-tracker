@@ -1,19 +1,22 @@
+import { useContext } from 'react';
 import './App.css';
 import AttackComponent from './components/AttackComponent';
-import NavBar from './components/NavBar';
 import Player from './components/Player';
 import { nanoid } from 'nanoid';
+import { HealthTrackerContext } from './healthTrackerContext';
 
 function App() {
+
+  const { playerColors } = useContext(HealthTrackerContext);
+
   return (
     <div className="App">
 
-      <NavBar />
       
       <div className='content'>
-        <Player key={nanoid()} bkc="var(--red-color)"/>
+        <Player key={nanoid()} bkc={playerColors.one} />
         <AttackComponent />
-        <Player key={nanoid()}  bkc="var(--blue-color)"/>
+        <Player key={nanoid()} bkc={playerColors.two} />
       </div>
 
     </div>
