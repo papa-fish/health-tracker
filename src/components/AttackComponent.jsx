@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import lowicon from "../assets/lowicon.svg";
 import midicon from "../assets/midicon.svg";
 import highicon from "../assets/highicon.svg";
@@ -10,13 +10,20 @@ import MinusButton from "./MinusButton";
 export default function AttackComponent() {
 
     const { 
-        toggleAttackZone, 
+        toggleAttackZone,
+        playerOneCurrentHp,
+        setPlayerOneCurrentHp,
+        // playerTwoCurrentHp,
+        // setPlayerTwoCurrentHp,
         showAttackZone,
-        playerColors
+        playerColors,
+        attackDamage,
+        setAttackDamage,
+        attackSpeed,
+        setAttackSpeed,
+        handleHalfBlock,
+        handleUnblocked
     } = useContext(HealthTrackerContext);
-
-    const [ attackDamage, setAttackDamage ] = useState(3);
-    const [ attackSpeed, setAttackSpeed ] = useState(3);
 
     return(
         <div className="attack-container">
@@ -25,7 +32,8 @@ export default function AttackComponent() {
                     <span 
                         className="attack-zone" 
                         value={attackSpeed}
-                    >{attackSpeed}
+                        >
+                        {attackSpeed}
                     </span>
                     {showAttackZone === 0 ? (
                         <img src={midicon} alt="" />
@@ -73,11 +81,19 @@ export default function AttackComponent() {
             </div>
 
                 <div className="block-container">
-                    <button className="block-btn" id="unblocked">
+                    <button 
+                        onClick={() => handleUnblocked(attackDamage, playerOneCurrentHp, setPlayerOneCurrentHp)}
+                        className="block-btn" 
+                        id="unblocked"
+                        >
                         <p>UNBLOCKED</p>
                         <p className="damage">{attackDamage}</p>
                     </button>
-                    <button className="block-btn" id="half-block">
+                    <button 
+                        onClick={() => handleHalfBlock(attackDamage, playerOneCurrentHp, setPlayerOneCurrentHp)}
+                        className="block-btn" 
+                        id="half-block"
+                        >
                         <p>HALF BLOCK</p>
                         <p className="damage">{Math.ceil(attackDamage / 2)}</p>
                     </button>
