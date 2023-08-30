@@ -6,23 +6,7 @@ export default function Player({ bkc, hp, setHp, maxHp, setMaxHp }) {
     return (
         <div className="player">
             <div className="hp-flex-container">
-                <div style={{ backgroundColor: bkc }} className="current-hp-wrapper">
-                    <p
-                        value={hp}
-                        className="current-hp"
-                        >{hp}
-                    </p>
-                </div>
-                <div style={{ backgroundColor: bkc }} className="max-hp-wrapper">
-                    <p
-                        value={maxHp}
-                        className="max-hp"
-                        >{maxHp}
-                    </p>
-                </div>
-            </div>
-            <div className="plus-minus-flex-container">
-                <div className="plus-minus-wrapper">
+                <div className="current-hp-plus-minus-wrapper">
                     <PlusButton 
                         bkc={bkc}
                         state={hp}
@@ -34,7 +18,32 @@ export default function Player({ bkc, hp, setHp, maxHp, setMaxHp }) {
                         setState={setHp} 
                         />
                 </div>
-                <div className="plus-minus-wrapper">
+                <div 
+                    style={{background: bkc }} 
+                    className="current-hp-wrapper"
+                    >
+                    <p
+                        value={hp}
+                        className="current-hp"
+                        >{hp}
+                    </p>
+                    <br />
+                    <p className="hp-status">current</p>
+                </div>
+                
+                <div 
+                    style={{ backgroundColor: bkc }} 
+                    className="max-hp-wrapper"
+                    >
+                    <p
+                        value={maxHp}
+                        className="max-hp"
+                        >{maxHp}
+                    </p>
+                    <br />
+                    <p className="hp-status">max</p>
+                </div>
+                <div className="max-hp-plus-minus-wrapper">
                     <PlusButton 
                         bkc={bkc}
                         state={maxHp}

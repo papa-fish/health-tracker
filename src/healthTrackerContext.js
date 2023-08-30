@@ -3,14 +3,15 @@ import { createContext, useState } from "react";
 export const HealthTrackerContext = createContext();
 
 export function HealthTrackerProvider(props) {
-    const [showAttackZone, setShowAttackZone] = useState(true);
+    const [ showAttackZone, setShowAttackZone ] = useState(true);
+    const [ isPlayerTurn, setIsPlayerTurn ] = useState(true);
     const [ attackDamage, setAttackDamage ] = useState(4);
     const [ attackSpeed, setAttackSpeed ] = useState(4);
     const [ playerOneCurrentHp, setPlayerOneCurrentHp ] = useState(25);
     const [ playerTwoCurrentHp, setPlayerTwoCurrentHp ] = useState(25);
     const [ playerOneMaxHp, setPlayerOneMaxHp ] = useState(25);
     const [ playerTwoMaxHp, setPlayerTwoMaxHp ] = useState(25);
-    const [activeButtonId, setActiveButtonId] = useState(null);
+    const [ activeButtonId, setActiveButtonId ] = useState(null);
 
     const playerColors = {
         one: "var(--red-color)",

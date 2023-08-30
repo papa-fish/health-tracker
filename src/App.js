@@ -26,6 +26,7 @@ export default function App() {
 
       <div className='content'>
         <div className='player-one-component'>
+          <AttackComponent />
           <Player
             key={nanoid()} 
             bkc={playerColors.one} 
@@ -41,10 +42,12 @@ export default function App() {
             />
         </div>
 
-        <AttackComponent />
-        <BlockComponent />
+        
+        <hr />
+
 
         <div className='player-two-component'>
+          <AttackComponent />
           <Player 
             key={nanoid()} 
             bkc={playerColors.two}
@@ -53,11 +56,12 @@ export default function App() {
             maxHp={playerTwoMaxHp}
             setMaxHp={setPlayerTwoMaxHp}
             />
-          <EndPhaseButton 
+            <BlockComponent />
+          {/* <EndPhaseButton 
             bkc={playerColors.two} 
             id={2} 
             isDisabled={true} 
-            />
+            /> */}
         </div>
       </div>
     </div>
