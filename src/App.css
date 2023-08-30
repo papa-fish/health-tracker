@@ -35,6 +35,10 @@ body {
   flex: 1;
 }
 
+.player-one-component {
+  rotate: 180deg;
+}
+
 /* Player Component  */
 .player {
   display: flex;
@@ -73,6 +77,7 @@ body {
   margin: 0;
 }
 
+/* Player Plus and Minus Buttons */
 .plus-minus-flex-container {
   flex-basis: 100%;
   display: flex;
@@ -114,7 +119,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0 5px;
   align-items: center;
 }
 
@@ -124,13 +128,13 @@ body {
   border: none;
 }
 
-.attack-zone {
+.attack-speed {
   position: absolute;
-  top: 256px;
-  left: 24px;
+  top: 247px;
+  left: 32px;
   width: 50px;
   text-align: center;
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-large);
   font-weight: var(--font-weight);
   color: var(--white-color);
   -webkit-text-stroke: var(--text-stroke);
@@ -138,40 +142,13 @@ body {
   background: none;
 }
 
-.speed-btn-container,
-.attack-btn-container {
-  display: flex;
-  margin-bottom: 10px;
-}
-
-.speed-btn,
-.attack-btn {
-  width: 48px;
-  height: 48px;
-  border: 2px solid var(--black-color);
-  color: var(--white-color);
-  font-weight: var(--font-weight);
-  -webkit-text-stroke: var(--text-stroke);
-  font-size: var(--font-size-medium);
-  border-radius: 8px;
-  margin-left: 5px;
-}
-
-.speed-btn {
-  background-color: var(--blue-color);
-}
-
-.attack-btn {
-  background-color: var(--red-color);
-}
-
 .attack-damage {
   position: absolute;
-  top: 254px;
-  right: 38px;
+  top: 247px;
+  right: 55px;
   width: 50px;
   text-align: center;
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-large);
   font-weight: var(--font-weight);
   color: var(--white-color);
   -webkit-text-stroke: var(--text-stroke);

@@ -4,12 +4,13 @@ export const HealthTrackerContext = createContext();
 
 export function HealthTrackerProvider(props) {
     const [showAttackZone, setShowAttackZone] = useState(true);
-    const [ attackDamage, setAttackDamage ] = useState(3);
-    const [ attackSpeed, setAttackSpeed ] = useState(3);
+    const [ attackDamage, setAttackDamage ] = useState(4);
+    const [ attackSpeed, setAttackSpeed ] = useState(4);
     const [ playerOneCurrentHp, setPlayerOneCurrentHp ] = useState(25);
     const [ playerTwoCurrentHp, setPlayerTwoCurrentHp ] = useState(25);
     const [ playerOneMaxHp, setPlayerOneMaxHp ] = useState(25);
     const [ playerTwoMaxHp, setPlayerTwoMaxHp ] = useState(25);
+    const [activeButtonId, setActiveButtonId] = useState(null);
 
     const playerColors = {
         one: "var(--red-color)",
@@ -36,14 +37,18 @@ export function HealthTrackerProvider(props) {
 
     const handleHalfBlock = (damage, state, setState) => {
         setState(Math.ceil(state - damage / 2))
-        setAttackDamage(3);
-        setAttackSpeed(3);
+        setAttackDamage(4);
+        setAttackSpeed(4);
     };
     
     const handleUnblocked = (damage, state, setState) => {
         setState(state - damage);
-        setAttackDamage(3);
-        setAttackSpeed(3);
+        setAttackDamage(4);
+        setAttackSpeed(4);
+    };
+
+    const disableButton = (buttonId) => {
+        setActiveButtonId(buttonId);
     };
     
     const value = {
@@ -65,7 +70,9 @@ export function HealthTrackerProvider(props) {
         attackSpeed,
         setAttackSpeed,
         handleHalfBlock,
-        handleUnblocked
+        handleUnblocked,
+        activeButtonId,
+        disableButton,
     };
 
     return(

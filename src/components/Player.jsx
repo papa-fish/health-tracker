@@ -1,13 +1,7 @@
-// import { useState } from "react";
-
 import PlusButton from "./PlusButton";
 import MinusButton from "./MinusButton";
-import EndPhaseButton from "./EndPhaseButton";
 
 export default function Player({ bkc, hp, setHp, maxHp, setMaxHp }) {
-
-    // const [ currentHp, setCurrentHp ] = useState(25);
-    // const [ maxHp, setMaxHp ] = useState(25);
 
     return (
         <div className="player">
@@ -53,7 +47,6 @@ export default function Player({ bkc, hp, setHp, maxHp, setMaxHp }) {
                         />
                 </div>
             </div>
-            <EndPhaseButton bkc={bkc} />
         </div>
     );
 }
