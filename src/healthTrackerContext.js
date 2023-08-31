@@ -56,7 +56,7 @@ export function HealthTrackerProvider(props) {
     };
 
     const handleHalfBlock = (damage, state, setState) => {
-        setState(Math.ceil(state - damage / 2))
+        setState(state - Math.ceil(damage / 2))
         setAttackDamage(4);
         setAttackSpeed(4);
     };
