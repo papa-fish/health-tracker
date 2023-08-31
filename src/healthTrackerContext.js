@@ -37,6 +37,11 @@ export function HealthTrackerProvider(props) {
         setState(currentState - 1);
     };
 
+    const handleFullBlock = () => {
+        setAttackDamage(4);
+        setAttackSpeed(4);
+    };
+
     const handleHalfBlock = (damage, state, setState) => {
         setState(Math.ceil(state - damage / 2))
         setAttackDamage(4);
@@ -48,6 +53,7 @@ export function HealthTrackerProvider(props) {
         setAttackDamage(4);
         setAttackSpeed(4);
     };
+
 
     const handleEndPhaseClick = () => {
         if (currentPlayer === 1) {
@@ -79,6 +85,7 @@ export function HealthTrackerProvider(props) {
         setAttackDamage,
         attackSpeed,
         setAttackSpeed,
+        handleFullBlock,
         handleHalfBlock,
         handleUnblocked,
         currentPlayer,

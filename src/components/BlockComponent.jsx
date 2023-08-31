@@ -4,6 +4,7 @@ import { HealthTrackerContext } from "../healthTrackerContext";
 export default function BlockComponent({ state, setState }) {
     const { 
         attackDamage,
+        handleFullBlock,
         handleHalfBlock,
         handleUnblocked } = useContext(HealthTrackerContext);
     return(
@@ -24,7 +25,11 @@ export default function BlockComponent({ state, setState }) {
                 <p>HALF BLOCK</p>
                 <p className="damage">{Math.ceil(attackDamage / 2)}</p>
             </button>
-            <button className="block-btn" id="full-block">
+            <button
+                onClick={handleFullBlock} 
+                className="block-btn" 
+                id="full-block"
+                >
                 <p> FULL BLOCK</p>
                 <p className="damage">{attackDamage * 0}</p>
             </button>
