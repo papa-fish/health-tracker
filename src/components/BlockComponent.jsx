@@ -1,19 +1,15 @@
 import { useContext } from "react";
 import { HealthTrackerContext } from "../healthTrackerContext";
 
-export default function BlockComponent() {
+export default function BlockComponent({ state, setState }) {
     const { 
         attackDamage,
-        playerOneCurrentHp,
-        setPlayerOneCurrentHp,
-        // playerTwoCurrentHp,
-        // setPlayerTwoCurrentHp,
         handleHalfBlock,
         handleUnblocked } = useContext(HealthTrackerContext);
     return(
         <div className="block-container">
             <button 
-                onClick={() => handleUnblocked(attackDamage, playerOneCurrentHp, setPlayerOneCurrentHp)}
+                onClick={() => handleUnblocked(attackDamage, state, setState)}
                 className="block-btn" 
                 id="unblocked"
                 >
@@ -21,7 +17,7 @@ export default function BlockComponent() {
                 <p className="damage">{attackDamage}</p>
             </button>
             <button 
-                onClick={() => handleHalfBlock(attackDamage, playerOneCurrentHp, setPlayerOneCurrentHp)}
+                onClick={() => handleHalfBlock(attackDamage, state, setState)}
                 className="block-btn" 
                 id="half-block"
                 >

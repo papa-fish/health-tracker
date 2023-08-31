@@ -19,6 +19,9 @@ export default function App() {
     setPlayerOneMaxHp,
     playerTwoMaxHp,
     setPlayerTwoMaxHp,
+    showEndPhaseButton1,
+    showEndPhaseButton2,
+    currentPlayer
    } = useContext(HealthTrackerContext);
 
   return (
@@ -35,16 +38,22 @@ export default function App() {
             maxHp={playerOneMaxHp}
             setMaxHp={setPlayerOneMaxHp}
             />
+          {showEndPhaseButton1 && (
           <EndPhaseButton 
             bkc={playerColors.one} 
             id={1}
             isDisabled={false}
             />
+          )}
+          {currentPlayer === 2 && 
+            <BlockComponent
+              state={playerOneCurrentHp}
+              setState={setPlayerOneCurrentHp}
+            />
+          }
         </div>
 
-        
         <hr />
-
 
         <div className='player-two-component'>
           <AttackComponent />
@@ -56,12 +65,19 @@ export default function App() {
             maxHp={playerTwoMaxHp}
             setMaxHp={setPlayerTwoMaxHp}
             />
-            <BlockComponent />
-          {/* <EndPhaseButton 
+          {showEndPhaseButton2 && (
+          <EndPhaseButton 
             bkc={playerColors.two} 
             id={2} 
             isDisabled={true} 
-            /> */}
+            />
+          )}
+          {currentPlayer === 1 && 
+            <BlockComponent 
+            state={playerTwoCurrentHp} 
+            setState={setPlayerTwoCurrentHp} 
+            />
+          }
         </div>
       </div>
     </div>
