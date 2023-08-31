@@ -6,7 +6,6 @@ import damageicon from "../assets/damageicon.svg";
 import { HealthTrackerContext } from "../healthTrackerContext";
 import PlusButton from "./PlusButton";
 import MinusButton from "./MinusButton";
-import BlockComponent from "./BlockComponent";
 
 export default function AttackComponent() {
 

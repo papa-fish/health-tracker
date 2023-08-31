@@ -73,10 +73,15 @@ export function HealthTrackerProvider(props) {
           setShowEndPhaseButton1(false);
           setShowEndPhaseButton2(true);
           setCurrentPlayer(2);
+          setAttackDamage(4);
+          setAttackSpeed(4);
+
         } else {
           setShowEndPhaseButton1(true);
           setShowEndPhaseButton2(false);
           setCurrentPlayer(1);
+          setAttackDamage(4);
+          setAttackSpeed(4);
         }
       };
     
