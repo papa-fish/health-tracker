@@ -6,10 +6,13 @@ import Player from './components/Player';
 import { nanoid } from 'nanoid';
 import { HealthTrackerContext } from './healthTrackerContext';
 import EndPhaseButton from './components/EndPhaseButton';
+import resetImg from './assets/arrow-counterclockwise.svg'
 
 export default function App() {
 
   const { 
+    showOverlay,
+    handleReset,
     playerColors,
     playerOneCurrentHp,
     setPlayerOneCurrentHp,
@@ -28,6 +31,11 @@ export default function App() {
     <div className="App">
 
       <div className='content'>
+      {showOverlay && (
+        <div className="overlay">
+            <button className="reset-btn" onClick={handleReset}><img className="reset-btn" src={resetImg} alt="" /></button>
+        </div>
+      )}
         <div className='player-one-component'>
           <AttackComponent />
           <Player

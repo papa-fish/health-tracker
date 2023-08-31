@@ -1,8 +1,9 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const HealthTrackerContext = createContext();
 
 export function HealthTrackerProvider(props) {
+    const [ showOverlay, setShowOverlay ] = useState(false);
     const [ currentPlayer, setCurrentPlayer ] = useState(1);
     const [ showEndPhaseButton1, setShowEndPhaseButton1 ] = useState(true);
     const [ showEndPhaseButton2, setShowEndPhaseButton2 ] = useState(false);
@@ -17,6 +18,18 @@ export function HealthTrackerProvider(props) {
     const playerColors = {
         one: "var(--red-color)",
         two: "var(--blue-color)"
+    };
+
+    useEffect(() => {
+        if (playerOneCurrentHp <= 0 || playerTwoCurrentHp <= 0) {
+            setShowOverlay(true);
+        }
+    }, [playerOneCurrentHp, playerTwoCurrentHp]);
+
+    const handleReset = () => {
+        setShowOverlay(false);
+        setPlayerOneCurrentHp(playerOneMaxHp);
+        setPlayerTwoCurrentHp(playerTwoMaxHp);
     };
 
     const toggleAttackZone = () => {
@@ -68,6 +81,8 @@ export function HealthTrackerProvider(props) {
       };
     
     const value = {
+        showOverlay,
+        handleReset,
         toggleAttackZone,
         playerOneCurrentHp,
         setPlayerOneCurrentHp,
