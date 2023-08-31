@@ -14,7 +14,7 @@ export default function BlockComponent({ state, setState }) {
                 className="block-btn" 
                 id="unblocked"
                 >
-                <p>UNBLOCKED</p>
+                <label>UNBLOCKED</label>
                 <p className="damage">{attackDamage}</p>
             </button>
             <button 
@@ -22,7 +22,7 @@ export default function BlockComponent({ state, setState }) {
                 className="block-btn" 
                 id="half-block"
                 >
-                <p>HALF BLOCK</p>
+                <label>HALF BLOCK</label>
                 <p className="damage">{Math.ceil(attackDamage / 2)}</p>
             </button>
             <button

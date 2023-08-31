@@ -18,31 +18,32 @@ export default function Player({ bkc, hp, setHp, maxHp, setMaxHp }) {
                         setState={setHp} 
                         />
                 </div>
+
                 <div 
-                    style={{background: bkc }} 
-                    className="current-hp-wrapper"
-                    >
-                    <p
-                        value={hp}
-                        className="current-hp"
-                        >{hp}
-                    </p>
-                    <br />
-                    <p className="hp-status">current</p>
+                    style={{ background: bkc }} 
+                    className="hp-wrapper"
+                >
+                    <div className="hp-label">
+                        <label className="hp-status">CURRENT</label>
+                        <p
+                            value={hp}
+                            className="hp"
+                        >
+                            {hp}
+                        </p>
+                    </div>
+                    <div className="hp-label">
+                        <label className="hp-status">MAX</label>
+                        <p
+                            value={maxHp}
+                            className="hp"
+                        >
+                            {maxHp}
+                        </p>
+                    </div>
                 </div>
+
                 
-                <div 
-                    style={{ backgroundColor: bkc }} 
-                    className="max-hp-wrapper"
-                    >
-                    <p
-                        value={maxHp}
-                        className="max-hp"
-                        >{maxHp}
-                    </p>
-                    <br />
-                    <p className="hp-status">max</p>
-                </div>
                 <div className="max-hp-plus-minus-wrapper">
                     <PlusButton 
                         bkc={bkc}
