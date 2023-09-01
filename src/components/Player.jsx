@@ -7,14 +7,15 @@ export default function Player({ bkc, hp, setHp, maxHp, setMaxHp }) {
 
     const { calculateHpPercentage } = useContext(HealthTrackerContext);
 
-    const containerStyle = {
-        height: '100%',
-        background: `linear-gradient(to top, ${bkc} ${calculateHpPercentage(hp, maxHp)}%, transparent ${calculateHpPercentage(hp, maxHp)}%)`,
-      };
+    const healthMeterStyle = {
+        background: `linear-gradient(to top, ${bkc} ${calculateHpPercentage(hp, maxHp)}%, transparent ${calculateHpPercentage(hp, maxHp)}%)`
+    };
 
     return (
-        <div className="player"
-            style={containerStyle}>
+        <div 
+            className="player"
+            style={ healthMeterStyle }
+            >
             <div className="hp-flex-container">
                 <div className="current-hp-plus-minus-wrapper">
                     <PlusButton 

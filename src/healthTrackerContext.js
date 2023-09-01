@@ -67,8 +67,8 @@ export function HealthTrackerProvider(props) {
         setAttackSpeed(4);
     };
 
-    function calculateHpPercentage(hp, maxHp) {
-        return hp / maxHp * 100;
+    const calculateHpPercentage = (currentHp, maxHp) => {
+        return Math.ceil((currentHp / maxHp) * 100);
     };
 
     const handleEndPhaseClick = () => {
