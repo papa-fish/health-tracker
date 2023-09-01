@@ -67,6 +67,9 @@ export function HealthTrackerProvider(props) {
         setAttackSpeed(4);
     };
 
+    function calculateHpPercentage(hp, maxHp) {
+        return hp / maxHp * 100;
+    };
 
     const handleEndPhaseClick = () => {
         if (currentPlayer === 1) {
@@ -111,7 +114,8 @@ export function HealthTrackerProvider(props) {
         currentPlayer,
         handleEndPhaseClick,
         showEndPhaseButton1,
-        showEndPhaseButton2
+        showEndPhaseButton2,
+        calculateHpPercentage
     };
 
     return(

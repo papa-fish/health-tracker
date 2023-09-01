@@ -1,10 +1,20 @@
 import PlusButton from "./PlusButton";
 import MinusButton from "./MinusButton";
+import { useContext } from "react";
+import { HealthTrackerContext } from "../healthTrackerContext";
 
 export default function Player({ bkc, hp, setHp, maxHp, setMaxHp }) {
 
+    const { calculateHpPercentage } = useContext(HealthTrackerContext);
+
+    const containerStyle = {
+        height: '100%',
+        background: `linear-gradient(to top, ${bkc} ${calculateHpPercentage(hp, maxHp)}%, transparent ${calculateHpPercentage(hp, maxHp)}%)`,
+      };
+
     return (
-        <div className="player">
+        <div className="player"
+            style={containerStyle}>
             <div className="hp-flex-container">
                 <div className="current-hp-plus-minus-wrapper">
                     <PlusButton 
@@ -20,7 +30,6 @@ export default function Player({ bkc, hp, setHp, maxHp, setMaxHp }) {
                 </div>
 
                 <div 
-                    style={{ background: bkc }} 
                     className="hp-wrapper"
                 >
                     <div className="hp-label">
